@@ -1,10 +1,10 @@
-import React, { useState} from 'react';
+import React, {useState, useEffect} from 'react';
+
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Pressable, FlatList, TextInput } from 'react-native';
 
 import { ScrollView } from 'react-native';
-import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
+import * as Font from 'expo-font';
 
 const categories = [
   { id: '1', name: 'Exercise', tasks: 12, image: require('./assets/exercise.png') },
@@ -19,28 +19,27 @@ const categories = [
   { id: '10', name: 'Travel', tasks: 6, image: require('./assets/travel.png') },
 ];
 
+const loadFonts = async () => {
+  await Font.loadAsync({
+    'Lato': require('./assets/fonts/Lato-Regular.ttf'),
+  });
+};
+
 
 export default function App() {
   const [searchText, setSearchText] = useState('');
 
-  let [fontsLoaded, setFontsLoaded] = useState(false);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  let loadFontsAsync = async () => {
-    await useFonts({
-      'Lato': require('./assets/Lato/Lato-Regular.ttf'),
+  useEffect(() => {
+    loadFonts().then(() => {
+      setFontsLoaded(true);
     });
-    setFontsLoaded(true);
-  };
+  }, []);
 
   if(!fontsLoaded) {
-    return (
-      <AppLoading
-        startAsync={loadFontsAsync}
-        onFinish={() => setFontsLoaded(true)}
-        onError={console.warn}
-        />
-    );
-    }
+    return null;
+  }
 
     const renderCategoryItem = ({ item }) => (
       <View style={styles.categoryCard}>
@@ -56,7 +55,7 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.frame1}>
         <View style={styles.textContainer}>
-          <Text style={[styles.text1, { fontFamily: 'Lato'}]}>Hello , Devs</Text>
+          <Text style={styles.text1}>Hello , Devs</Text>
           <Text style={styles.text2}>14 tasks today</Text>
         </View>
         <View style={styles.profileImageContainer}>
@@ -97,81 +96,81 @@ export default function App() {
           contentContainerStyle={styles.categoryList}/>
         </View>
         <View />
-        <Text style={styles.text5}>Ongoing Tasks</Text>
+        <Text style={[styles.text5, {fontFamily: "Lato"}]}>Ongoing Tasks</Text>
         <ScrollView style={styles.scrollView}>
             <View style={styles.ongoingTaskCard}>
               <Text style={styles.ongoingTaskName}>
-                1Mobile Development
+                  Mobile App Development
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                2Web Development
+              <Text style={styles.ongoingTaskName1}>
+                  Web Development
               </Text>
             </View>
              <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                3Mobile Development
+              <Text style={styles.ongoingTaskName2}>
+                  Push Ups
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                4Mobile Development
+              <Text style={styles.ongoingTaskName3}>
+                  Exercise
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                5Mobile Development
+              <Text style={styles.ongoingTaskName4}>
+                Data Analysis
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                6Mobile Development
+              <Text style={styles.ongoingTaskName5}>
+                Content Writing
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                7Mobile Development
+              <Text style={styles.ongoingTaskName6}>
+                Graphic Design
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                8Mobile Development
+              <Text style={styles.ongoingTaskName7}>
+                Video Editing
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                9Mobile Development
+              <Text style={styles.ongoingTaskName8}>
+                Software Testing
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                10Mobile Development
+              <Text style={styles.ongoingTaskName9}>
+                Marketing Campaign
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                11Mobile Development
+              <Text style={styles.ongoingTaskName10}>
+                Research Project
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                12Mobile Development
+              <Text style={styles.ongoingTaskName11}>
+                Database Management
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                13Mobile Development
+              <Text style={styles.ongoingTaskName12}>
+                Network Security
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                14Mobile Development
+              <Text style={styles.ongoingTaskName13}>
+                Customer Support
               </Text>
             </View>
             <View style={styles.ongoingTaskCard}>
-              <Text style={styles.ongoingTaskName}>
-                15Mobile Development
+              <Text style={styles.ongoingTaskName14}>
+                UI/UX Design
               </Text>
             </View>
         </ScrollView>
@@ -201,6 +200,7 @@ const styles = StyleSheet.create({
   },
   text4: {
     fontWeight: '700',
+    fontFamily: "Lato",
     fontSize: 20,
     lineHeight: 24,
     top: 200,
@@ -372,6 +372,90 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     color: 'black',
-    left: -70,
+    left: -50,
+  },
+  ongoingTaskName1: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -77,
+  },
+  ongoingTaskName2: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -113,
+  },
+  ongoingTaskName3: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -118,
+  },
+  ongoingTaskName4: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -97,
+  },
+  ongoingTaskName5: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -89,
+  },
+  ongoingTaskName6: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -91,
+  },
+  ongoingTaskName7: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -97,
+  },
+  ongoingTaskName8: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -82,
+  },
+  ongoingTaskName9: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -67,
+  },
+  ongoingTaskName10: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -84,
+  },
+  ongoingTaskName11: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -58,
+  },
+  ongoingTaskName12: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -83,
+  },
+  ongoingTaskName13: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -77,
+  },
+  ongoingTaskName14: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -98,
   },
 });
