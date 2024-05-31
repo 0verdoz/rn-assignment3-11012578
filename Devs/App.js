@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Pressable, FlatList, TextInput } from 'react-native';
+
+import { ScrollView } from 'react-native';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
@@ -16,6 +18,7 @@ const categories = [
   { id: '9', name: 'Workout', tasks: 9, image: require('./assets/workout.png') },
   { id: '10', name: 'Travel', tasks: 6, image: require('./assets/travel.png') },
 ];
+
 
 export default function App() {
   const [searchText, setSearchText] = useState('');
@@ -94,6 +97,84 @@ export default function App() {
           contentContainerStyle={styles.categoryList}/>
         </View>
         <View />
+        <Text style={styles.text5}>Ongoing Tasks</Text>
+        <ScrollView style={styles.scrollView}>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                1Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                2Web Development
+              </Text>
+            </View>
+             <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                3Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                4Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                5Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                6Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                7Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                8Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                9Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                10Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                11Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                12Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                13Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                14Mobile Development
+              </Text>
+            </View>
+            <View style={styles.ongoingTaskCard}>
+              <Text style={styles.ongoingTaskName}>
+                15Mobile Development
+              </Text>
+            </View>
+        </ScrollView>
     </View>
   );
 }
@@ -106,6 +187,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#000',
+  },
+  text5: {
+    fontWeight: '700',
+    fontSize: 20,
+    lineHeight: 24,
+    top: 460,
+    position: 'absolute',
+    marginTop: 20,
+    left: 20,
+    height: 24,
+    width: 150,
   },
   text4: {
     fontWeight: '700',
@@ -251,10 +343,35 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-start',
     paddingHorizontal: 20,
-    top: -130,
+    marginTop: 75,
     justifyContent: 'space-between',
   },
   categoryList: {
     paddingVertical: 20,
+  },
+  scrollView: {
+    flex: 1,
+    width: '100%',
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+    marginTop: 50,
+  },
+  ongoingTaskCard: {
+    width: 345,
+    height: 128,
+    left: 1,
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#E8D1BA',
+    backgroundColor: '#FBF9F7',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  ongoingTaskName: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'black',
+    left: -70,
   },
 });
