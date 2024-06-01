@@ -195,7 +195,7 @@ This walkthrough video will guide you through the key features of the App.
 
   <div align="center">
 
-| Android Emulator                                                    | Expo Go (iPhone)                                        |
+|               Android Emulator                                      |           Expo Go (iPhone)                              |
 | ------------------------------------------------------------------- | ------------------------------------------------------- |
 | <img src="./Devs/assets/screenshot.png" width="250" height="542" /> | <img src="./Devs/assets/screenshot.jpeg" width="250" /> |
 
@@ -206,9 +206,9 @@ This walkthrough video will guide you through the key features of the App.
 
   <div align="center">
 
-| Android Emulator                                                                         | Expo Go (iPhone)                                        |
+|                   VS Code                                                                |           GitHub                                        |
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| <video width="250" height="543" controls><source src="./Devs/assets/Record.MP4"></video> | <img src="./Devs/assets/screenshot.jpeg" width="250" /> |
+| <video width="250" height="543" controls><source src="./Devs/assets/Record.MP4"></video> | https://github.com/0verdoz/rn-assignment3-11012578/assets/151379914/48325aff-875d-4186-ac23-1e2570d2057e|
 
 </div>
 
