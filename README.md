@@ -212,6 +212,13 @@ This walkthrough video will guide you through the key features of the App.
 
 </div>
 
+### DEMO
+
+
+https://github.com/0verdoz/rn-assignment3-11012578/assets/151379914/8426b27e-afb0-4f85-9fad-4fa12effe432
+
+
+
 ## Installation Guide
 
 1. Clone the repository to your local machine.
