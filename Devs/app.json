@@ -1,6 +1,5 @@
 {
   "expo": {
-    "theme": "./theme.js",
     "name": "Devs",
     "slug": "Devs",
     "version": "1.0.0",
