@@ -215,8 +215,11 @@ This walkthrough video will guide you through the key features of the App.
 ### DEMO
 
 
-https://github.com/0verdoz/rn-assignment3-11012578/assets/151379914/8426b27e-afb0-4f85-9fad-4fa12effe432
 
+https://github.com/0verdoz/rn-assignment3-11012578/assets/151379914/a6352830-8f18-44f7-9ef4-37198f4c112a
+
+
+ 
 
 
 ## Installation Guide
