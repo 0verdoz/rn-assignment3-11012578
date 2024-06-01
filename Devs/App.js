@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Pressable, FlatList, TextInput } from 'react-native';
+import { Vibration } from 'react-native';
 
 import { ScrollView } from 'react-native';
 import * as Font from 'expo-font';
@@ -67,16 +68,27 @@ export default function App() {
       <View style={{height: 70}}/>
       <View style={styles.frame2}>
         <View style={styles.textContainer1}>
-          <Image source={require('./assets/mynaui_search.png')} style={styles.searchIcon} />
-          { searchText === '' && (
-            <Text style={styles.text3}>Search</Text>
-          )}
+          <Image source={require('./assets/mynaui_search.png')} style={[styles.searchIcon, { borderWidth: 0}]}/>
+          <View style={{marginLeft: 10}}>
           <TextInput style={styles.searchBar} 
               value={searchText}
               onChangeText={setSearchText}
+              placeholder='Search'
+              placeholderTextColor="black"
+              placeholderStyle={{
+                left: 9,
+                fontWeight: '700',
+                lineHeight: 19.2,
+                fontSize: 16,
+                color: 'black',
+              }}
           />
+          </View>
         </View>
-        <Pressable onPress={() => console.log('Menu button pressed.')}>
+        <Pressable onPress={() => {
+          console.log('Menu button pressed.');
+          Vibration.vibrate(50);
+        }}>
         <View style={styles.profileImageContainer}>
           <View style={styles.ellipse2} />
           <Image source={require('./assets/bx_slider.png')} style={styles.image2} />
@@ -319,10 +331,10 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   categoryImage: {
-    width: 158,
+    width: 153.5,
     height: 146,
-    top: 37,
-    left: 8,
+    top: 43,
+    left: 2,
   },
   categoryTextContainer: {
     position: 'absolute',
